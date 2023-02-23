@@ -3,6 +3,7 @@ const BASE_URL_FOR_BIKES =
 const BASE_URL_FOR_WEATHER =
   "http://api.weatherapi.com/v1/current.json?key=70342b35aa7a42e0bd2201015232202&q=EC2A3QA&aqi=no";
 
+const getWeather = () => {};
 axios.get(BASE_URL_FOR_WEATHER).then((response) => {
   const wind = response.data.current.wind_mph;
   const rain = response.data.current.precip_mm;
@@ -11,6 +12,8 @@ axios.get(BASE_URL_FOR_WEATHER).then((response) => {
   const borisStats = document.querySelector(".boris__stats");
   const borisText = document.querySelector(".boris__text");
   const borisPic = document.querySelector(".boris__pic");
+  const borisButton = document.querySelector(".boris__button-group");
+  const borisIconWrapper = document.querySelector(".boris__icon-wrapper");
 
   console.log(wind);
   console.log(rain);
@@ -27,7 +30,9 @@ axios.get(BASE_URL_FOR_WEATHER).then((response) => {
     borisStats.appendChild(tempElement);
     borisStats.appendChild(windElement);
     borisStats.appendChild(rainElement);
+    boris.appendChild(borisStats);
     boris.appendChild(iconElement);
+    borisIconWrapper.appendChild(iconElement);
     tempElement.classList.add("boris__temp");
     windElement.classList.add("boris__wind");
     rainElement.classList.add("boris__rain");
@@ -83,35 +88,43 @@ axios.get(BASE_URL_FOR_WEATHER).then((response) => {
     }
   };
 
-  howsTheWeather();
+  borisButton.addEventListener("click", () => {
+    borisStats.innerHTML = "";
+    borisIconWrapper.innerHTML = "";
+    howsTheWeather();
+    getBikes();
+    borisButton.classList.add("boris__button-group--disappear");
+  });
 });
 
-axios.get(BASE_URL_FOR_BIKES).then((response) => {
-  const xml = response.data;
-  parser = new DOMParser();
-  xmlDoc = parser.parseFromString(xml, "text/xml");
-  console.log(xmlDoc);
-  highstreetString =
-    xmlDoc.getElementsByTagName("station")[37].childNodes[10].textContent;
-  highstreet = Number(highstreetString);
-  console.log(highstreet);
-  worshipString =
-    xmlDoc.getElementsByTagName("station")[169].childNodes[10].textContent;
-  worship = Number(worshipString);
-  console.log(worship);
-  columbiaString =
-    xmlDoc.getElementsByTagName("station")[379].childNodes[10].textContent;
-  columbia = Number(columbiaString);
-  console.log(columbia);
+const getBikes = () => {
+  axios.get(BASE_URL_FOR_BIKES).then((response) => {
+    const xml = response.data;
+    parser = new DOMParser();
+    xmlDoc = parser.parseFromString(xml, "text/xml");
+    console.log(xmlDoc);
+    highstreetString =
+      xmlDoc.getElementsByTagName("station")[37].childNodes[10].textContent;
+    highstreet = Number(highstreetString);
+    console.log(highstreet);
+    worshipString =
+      xmlDoc.getElementsByTagName("station")[169].childNodes[10].textContent;
+    worship = Number(worshipString);
+    console.log(worship);
+    columbiaString =
+      xmlDoc.getElementsByTagName("station")[379].childNodes[10].textContent;
+    columbia = Number(columbiaString);
+    console.log(columbia);
 
-  const bikeText = document.querySelector(".bike__text");
+    const bikeText = document.querySelector(".bike__text");
 
-  if (highstreet >= 10) {
-    bikeText.innerText = `You're in luck, there are plenty of bikes available! (${highstreet} bikes left.)`;
-  } else if (highstreet <= 10 && highstreet >= 1) {
-    bikeText.innerText = `QUICK! There are only ${highstreet}
-       bikes left, get one fast!! (if you don't make it you can go to Worship Street (${worship} bikes left)  or Columbia Street (${columbia} bikes left))`;
-  } else {
-    `TOO SLOW! There are no Bikes left! Instead you can go to Worship Street (${worship} bikes left) or Columbia Street (${columbia} bikes left)`;
-  }
-});
+    if (highstreet >= 10) {
+      bikeText.innerText = `You're in luck, there are plenty of bikes available! (${highstreet} bikes left.)`;
+    } else if (highstreet <= 10 && highstreet >= 1) {
+      bikeText.innerText = `QUICK! There are only ${highstreet}
+             bikes left, get one fast!! (if you don't make it you can go to Worship Street (${worship} bikes left)  or Columbia Street (${columbia} bikes left))`;
+    } else {
+      `TOO SLOW! There are no Bikes left! Instead you can go to Worship Street (${worship} bikes left) or Columbia Street (${columbia} bikes left)`;
+    }
+  });
+};

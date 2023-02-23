@@ -1,0 +1,89 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  text-align: center;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: skyblue;
+}
+
+.boris {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  position: relative;
+}
+.boris__pic {
+  width: 60rem;
+  height: 40rem;
+}
+.boris__icon-wrapper {
+  display: flex;
+}
+.boris__text {
+  background-color: aqua;
+  font-size: 4rem;
+}
+.boris__stats {
+  background-color: red;
+  font-size: 4rem;
+}
+.boris__button-group {
+  position: relative;
+}
+.boris__button-group:hover > .boris__button {
+  background-color: red;
+  font-weight: 700;
+  font-size: 2rem;
+}
+.boris__button-group--disappear {
+  display: none;
+}
+.boris__button-border {
+  display: flex;
+  border: solid 0.5rem red;
+  color: white;
+  width: 18rem;
+  height: 6rem;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -0.5rem;
+  left: -0.5rem;
+  transition: none;
+}
+.boris__button-border:active {
+  top: 0rem;
+  left: 0rem;
+}
+.boris__button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: skyblue;
+  border: solid 0.5rem black;
+  width: 18rem;
+  height: 6rem;
+}
+
+.bike {
+  width: 30%;
+  width: auto;
+  display: flex;
+  align-items: center;
+}
+.bike__text {
+  text-align: center;
+  display: flex;
+  background-color: red;
+  font-size: 4rem;
+}/*# sourceMappingURL=styles.css.map */

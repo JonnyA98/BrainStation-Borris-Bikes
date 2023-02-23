@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Brainstation Boris Bikes</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./script.js" defer></script>
   </head>
@@ -16,8 +17,16 @@
         src="./assets/Boris-Pics/Main-Boris.jpeg"
         alt="main_boris"
       />
-      <ul class="boris__stats"></ul>
-      <p class="boris__text"></p>
+      <div class="stats-wrapper">
+        <div class="boris__icon-wrapper"></div>
+        <ul class="boris__stats"></ul>
+        <p class="boris__text"></p>
+      </div>
+
+      <div class="boris__button-group">
+        <div class="boris__button-border"></div>
+        <div class="boris__button">CLICK TO START</div>
+      </div>
     </article>
     <article class="bike">
       <p class="bike__text"></p>

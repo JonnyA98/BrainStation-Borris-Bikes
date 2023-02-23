@@ -1,0 +1,97 @@
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+h1 {
+  text-align: center;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  color: skyblue;
+}
+
+.boris {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  position: relative;
+
+  &__pic {
+    width: 60rem;
+    height: 40rem;
+  }
+
+  &__icon-wrapper {
+    display: flex;
+  }
+
+  &__text {
+    background-color: aqua;
+    font-size: 4rem;
+  }
+
+  &__stats {
+    background-color: red;
+    font-size: 4rem;
+  }
+
+  &__button-group {
+    position: relative;
+    &:hover > .boris__button {
+      background-color: red;
+      font-weight: 700;
+      font-size: 2rem;
+    }
+
+    &--disappear {
+      display: none;
+    }
+  }
+
+  &__button-border {
+    display: flex;
+    border: solid 0.5rem red;
+    color: white;
+    width: 18rem;
+    height: 6rem;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: -0.5rem;
+    left: -0.5rem;
+    transition: none;
+    &:active {
+      top: 0rem;
+      left: 0rem;
+    }
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: skyblue;
+    border: solid 0.5rem black;
+    width: 18rem;
+    height: 6rem;
+  }
+}
+
+.bike {
+  width: 30%;
+  width: auto;
+  display: flex;
+  align-items: center;
+  &__text {
+    text-align: center;
+    display: flex;
+    background-color: red;
+    font-size: 4rem;
+  }
+}
