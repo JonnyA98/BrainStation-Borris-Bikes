@@ -14,6 +14,7 @@ h1 {
   text-align: center;
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
   color: skyblue;
+  text-decoration: underline;
 }
 
 .boris {
@@ -28,14 +29,52 @@ h1 {
 }
 .boris__icon-wrapper {
   display: flex;
+  height: 30rem;
+  width: 40rem;
 }
 .boris__text {
   background-color: aqua;
   font-size: 4rem;
 }
 .boris__stats {
+  display: flex;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  list-style: none;
+  padding: 0;
+}
+.boris__temp, .boris__wind, .boris__rain {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 33%;
+  height: 10rem;
+  border: solid 0.1rem black;
+  padding: 1rem;
+  background-color: greenyellow;
+}
+.boris__temp--red {
   background-color: red;
-  font-size: 4rem;
+}
+.boris__temp--green {
+  background-color: darkgreen;
+}
+.boris__temp--blue {
+  background-color: blue;
+}
+.boris__wind--amber {
+  background-color: orange;
+}
+.boris__wind--red {
+  background-color: red;
+}
+.boris__rain--amber {
+  background-color: orange;
+}
+.boris__rain--red {
+  background-color: red;
 }
 .boris__button-group {
   position: relative;
@@ -82,8 +121,15 @@ h1 {
   align-items: center;
 }
 .bike__text {
+  margin: auto;
   text-align: center;
   display: flex;
   background-color: red;
   font-size: 4rem;
+}
+.bike__text--green {
+  background-color: green;
+}
+.bike__text--amber {
+  background-color: orange;
 }/*# sourceMappingURL=styles.css.map */
